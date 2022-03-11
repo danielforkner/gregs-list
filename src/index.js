@@ -1,11 +1,12 @@
-import React from "react";
-import ReactDom from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import {Posts} from "./components";
+import React from 'react';
+import ReactDom from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Posts, Register } from './components';
 
 ReactDom.render(
   <Router>
-    <Posts/>
+    {/* <Posts/> */}
+    <Register />
   </Router>,
-  document.getElementById("app")
+  document.getElementById('app')
 );

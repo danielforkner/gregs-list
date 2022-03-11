@@ -1,17 +1,19 @@
-.post{
-    border: 1px solid black;
-    margin: 10px;
-    padding: 10px; 
+.post {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
 }
 
-.post>h4{
-    font-weight: 700;
-    font-size: 1.5rem;
-
-
+.post > h4 {
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
-.post>p{
-    font-size: 1rem;
-    
+.post > p {
+  font-size: 1rem;
+}
+
+.registerComponent {
+  border: 1px solid blue;
+  padding: 10px;
 }
