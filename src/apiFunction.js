@@ -12,3 +12,23 @@ export const getAllPosts = async (setAllPosts) => {
      console.error(error)
  }
 }
+
+export const registerUser = async (userName,password) => {
+   try {
+    const response = await fetch(`${BASEURL}${COHORT}/users/register`,{
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user: {
+        username: userName,
+        password: password 
+      }
+    })}) 
+    const data = await response.json()
+    console.log(data)
+   } catch(error){
+       console.error(error)
+   }
+}

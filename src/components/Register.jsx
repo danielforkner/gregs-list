@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { registerUser } from '../apiFunction';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -11,6 +12,7 @@ const Register = () => {
         onSubmit={(e) => {
           e.preventDefault();
           console.log('Username:', username, 'Password:', password);
+          registerUser(username,password)
           setUsername('');
           setPassword('');
         }}
