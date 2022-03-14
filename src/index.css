@@ -18,6 +18,11 @@
   padding: 10px;
 }
 
+.loginComponent {
+  border: 1px solid green;
+  padding: 10px;
+}
+
 .hidden{
   display: none;
 }
