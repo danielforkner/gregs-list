@@ -27,7 +27,9 @@ export const registerUser = async (userName,password) => {
       }
     })}) 
     const data = await response.json()
+    const token = (data.data.token)
     console.log(data)
+    window.localStorage.setItem("token",token)
    } catch(error){
        console.error(error)
    }

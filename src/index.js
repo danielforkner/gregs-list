@@ -9,7 +9,7 @@ ReactDom.render(
     <Navbar/>
     {/* <Posts/> */}
     
-    <Register className="hidden" />
+    <Register />
   </Router>,
   document.getElementById('app')
 );

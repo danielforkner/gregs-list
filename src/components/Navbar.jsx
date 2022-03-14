@@ -8,6 +8,7 @@ const NavBar = (props) => {
         <div>
           <div   className="nav_item">
            <button>Register</button> 
+           <button>Login</button>
           </div>
 
         </div>
