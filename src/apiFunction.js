@@ -34,3 +34,26 @@ export const registerUser = async (userName,password) => {
        console.error(error)
    }
 }
+
+
+export const loginUser = async (userName,password) => {
+  try {
+   const response = await fetch(`${BASEURL}${COHORT}/users/login`,{
+   method: "POST",
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   body: JSON.stringify({
+     user: {
+       username: userName,
+       password: password 
+     }
+   })}) 
+   const data = await response.json()
+   const token = (data.data.token)
+   console.log(data)
+   window.localStorage.setItem("token",token)
+  } catch(error){
+      console.error(error)
+  }
+}
