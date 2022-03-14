@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { loginUser } from '../apiFunction';
+
+
 const Login = () => { const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 
@@ -17,6 +19,7 @@ return (
         setPassword('');
       }}
     >
+
       <input
         value={username}
         type="text"
@@ -35,7 +38,13 @@ return (
       />
       <button type="submit">Login</button>
     </form>
+    <p> If you dont have an account Register Here</p>
+<button>
+  Redgister
+</button>
   </div>
 );}
+
+
 
 export default Login
