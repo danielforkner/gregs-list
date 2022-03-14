@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPost } from '../apiFunction';
 
 const Newpost = () => {
   const [checked, setChecked] = useState(false);
@@ -14,7 +15,15 @@ const Newpost = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          // new post api request()
+          const newPost = {
+            title: title,
+            description: description,
+            price: price,
+            location: location,
+            willDeliver: deliver,
+          };
+          console.log(newPost);
+          createPost(newPost, window.localStorage.getItem('token'));
           setTitle('');
           setDescription('');
           setPrice('');
@@ -25,6 +34,7 @@ const Newpost = () => {
         }}
       >
         <input
+          required
           value={title}
           type="text"
           name="title"
@@ -34,6 +44,7 @@ const Newpost = () => {
           }}
         />
         <input
+          required
           value={description}
           type="text"
           name="description"
@@ -43,6 +54,7 @@ const Newpost = () => {
           }}
         />
         <input
+          required
           value={price}
           type="text"
           name="price"
@@ -52,6 +64,7 @@ const Newpost = () => {
           }}
         />
         <input
+          required
           value={location}
           type="text"
           name="location"

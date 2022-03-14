@@ -7,9 +7,9 @@ import './index.css';
 ReactDom.render(
   <Router>
     <Navbar />
-    {/* <Posts/> */}
+    <Posts />
     {/* <Register /> */}
-    {/* <Login /> */}
+    <Login />
     <Newpost />
   </Router>,
   document.getElementById('app')
