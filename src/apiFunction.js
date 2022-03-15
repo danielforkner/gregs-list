@@ -112,3 +112,25 @@ export const submitMessage = async (message, token, postid) => {
     console.error(error);
   }
 };
+
+export const getProfile = async(token) =>{
+  try {
+    const response = await fetch(
+      `${BASEURL}${COHORT}/users/me`,
+      {
+      
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        
+  
+      }
+    );
+    const data = await response.json();
+    console.log ("our profile",data);
+    return data 
+  } catch (error) {
+    console.error(error);
+  } 
+}
