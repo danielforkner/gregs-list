@@ -1,10 +1,21 @@
 const BASEURL = 'https://strangers-things.herokuapp.com';
 const COHORT = '/api/2202-FTB-ET-WEB-FT';
 
-export const getAllPosts = async (setAllPosts) => {
+export const getAllPosts = async (setAllPosts, token) => {
+  let response;
   try {
-    const response = await fetch(`${BASEURL}${COHORT}/posts`);
+    if (token) {
+      response = await fetch(`${BASEURL}${COHORT}/posts`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } else {
+      response = await fetch(`${BASEURL}${COHORT}/posts`);
+    }
     const data = await response.json();
+    console.log(response);
     setAllPosts(data.data.posts);
     console.log(data.data.posts);
     if (response.error) throw response.error;
@@ -80,21 +91,24 @@ export const createPost = async (newPost, token) => {
 
 export const submitMessage = async (message, token, postid) => {
   try {
-    const response = await fetch(`${BASEURL}${COHORT}/posts/${postid}/messages`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        message:{
-          content:message
-        } 
-      }),
-    });
+    const response = await fetch(
+      `${BASEURL}${COHORT}/posts/${postid}/messages`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          message: {
+            content: message,
+          },
+        }),
+      }
+    );
     const data = await response.json();
     console.log(data);
   } catch (error) {
     console.error(error);
   }
-}
+};

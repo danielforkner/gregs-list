@@ -7,6 +7,7 @@ const Post = ({ post, index }) => {
     <div key={index} className="post">
       {' '}
       <h4>{post.title} </h4>
+      {post.isAuthor === true ? <h1>WE WROTE THIS</h1> : null}
       <p>
         <em>{`By ${post.author.username} on ${post.createdAt.slice(
           0,
@@ -21,7 +22,7 @@ const Post = ({ post, index }) => {
       >
         Reply
       </button>
-      {isReply ? <Newmessage postid= {post._id}/> : null}
+      {isReply ? <Newmessage postid={post._id} /> : null}
     </div>
   );
 };

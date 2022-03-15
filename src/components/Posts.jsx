@@ -8,7 +8,14 @@ const Posts = (props) => {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
-    getAllPosts(setAllPosts);
+    if (window.localStorage.getItem('token')) {
+      const token = window.localStorage.getItem('token');
+      getAllPosts(setAllPosts, token);
+      console.log('we give the token');
+    } else {
+      console.log('we DO NOT give the token');
+      getAllPosts(setAllPosts);
+    }
   }, []);
 
   return (
