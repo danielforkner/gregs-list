@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { loginUser } from '../apiFunction';
-
+import {Link } from 'react-router-dom';
 
 const Login = () => { const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
@@ -39,9 +39,11 @@ return (
       <button type="submit">Login</button>
     </form>
     <p> If you dont have an account Register Here</p>
+  <Link to="/register">
 <button>
   Redgister
 </button>
+</Link>
   </div>
 );}
 
