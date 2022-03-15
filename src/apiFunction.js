@@ -134,3 +134,24 @@ export const getProfile = async(token) =>{
     console.error(error);
   } 
 }
+
+export const removePost = async(id,token) => {
+  try {
+    const response = await fetch(
+      `${BASEURL}${COHORT}/posts/${id}`,
+      {
+      method:"DELETE",
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        
+  
+      }
+    );
+    const data = await response.json();
+    console.log ("our Delete",data);
+  } catch (error) {
+    console.error(error);
+  } 
+} 
