@@ -16,9 +16,17 @@ const Profile = () => {
       <h1>My Profile</h1>
       <h1>My Messages</h1>
       {profile.messages ? profile.messages.map((message,i)=>{
-        return(<div>{message.post.title} </div>)
+        return(<div>{message.content} </div>)
       }):null}
       <h1>My Inbox</h1>
+      {profile.messages ? profile.messages.map((message,i)=>{
+        let userName = profile.username
+        let author = message.fromUser.username 
+        if (userName!==author){
+
+          return(<div>{message.content} </div>)
+        }
+      }):null}
       <h1>My Posts</h1>
       {profile.posts ? profile.posts.map((post,i)=>{
         return(<div>{post.title} </div>)
