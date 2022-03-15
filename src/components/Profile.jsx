@@ -1,10 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { getProfile, removePost } from "../apiFunction";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { getProfile, removePost } from '../apiFunction';
 
 const Profile = () => {
   const [profile, setProfile] = useState({});
-  const token = window.localStorage.getItem("token");
+  const token = window.localStorage.getItem('token');
   useEffect(async () => {
     const data = await getProfile(token);
     setProfile(data.data);
@@ -36,14 +36,14 @@ const Profile = () => {
             } else {
               return (
                 <div>
-                  {post.title}{" "}
+                  {post.title}{' '}
                   <button
                     onClick={() => {
                       removePost(post._id, token);
                     }}
                   >
                     Delete
-                  </button>{" "}
+                  </button>{' '}
                 </div>
               );
             }

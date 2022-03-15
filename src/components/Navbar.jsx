@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = (props) => {
+const NavBar = ({ isLoggedIn }) => {
   return (
     <div className="nav_bar_container">
       <div className="link_container">
@@ -19,9 +19,11 @@ const NavBar = (props) => {
             <Link to="/posts">
               <button>All Posts</button>
             </Link>
-            <Link to="/profile">
-              <button>My Profile</button>
-            </Link>
+            {isLoggedIn ? (
+              <Link to="/profile">
+                <button>My Profile</button>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn} />
       <Switch>
         <Route path="/posts/newpost">
           <Newpost isLoggedIn={isLoggedIn} />

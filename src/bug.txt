@@ -1,1 +1,7 @@
 defaultChecked={checked} is not working on NewPost.jsx for the checkbox input
+
+   {isLoggedIn ? (
+              <Link to="/profile">
+                <button>My Profile</button>
+              </Link>
+            ) : null}
