@@ -14,6 +14,7 @@ const Post = ({ post, index, isLoggedIn }) => {
           10
         )}`}</em>
       </p>
+      <p>Location: {post.location}</p>
       <p>{post.description}</p>
       {isLoggedIn && !post.isAuthor ? (
         <button

@@ -17,7 +17,7 @@ export const getAllPosts = async (setAllPosts, token) => {
     const data = await response.json();
     console.log(response);
     setAllPosts(data.data.posts);
-    console.log(data.data.posts);
+    console.log('all posts', data.data.posts);
     if (response.error) throw response.error;
   } catch (error) {
     console.error(error);
@@ -113,45 +113,34 @@ export const submitMessage = async (message, token, postid) => {
   }
 };
 
-export const getProfile = async(token) =>{
+export const getProfile = async (token) => {
   try {
-    const response = await fetch(
-      `${BASEURL}${COHORT}/users/me`,
-      {
-      
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        
-  
-      }
-    );
+    const response = await fetch(`${BASEURL}${COHORT}/users/me`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
-    console.log ("our profile",data);
-    return data 
+    console.log('our profile', data);
+    return data;
   } catch (error) {
     console.error(error);
-  } 
-}
+  }
+};
 
-export const removePost = async(id,token) => {
+export const removePost = async (id, token) => {
   try {
-    const response = await fetch(
-      `${BASEURL}${COHORT}/posts/${id}`,
-      {
-      method:"DELETE",
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        
-  
-      }
-    );
+    const response = await fetch(`${BASEURL}${COHORT}/posts/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
-    console.log ("our Delete",data);
+    console.log('our Delete', data);
   } catch (error) {
     console.error(error);
-  } 
-} 
+  }
+};
