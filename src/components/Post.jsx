@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Newmessage from './Newmessage';
 
-const Post = ({ post, index }) => {
+const Post = ({ post, index, isLoggedIn }) => {
   const [isReply, setReply] = useState(false);
   return (
     <div key={index} className="post">
@@ -15,13 +15,15 @@ const Post = ({ post, index }) => {
         )}`}</em>
       </p>
       <p>{post.description}</p>
-      <button
-        onClick={() => {
-          setReply(!isReply);
-        }}
-      >
-        Reply
-      </button>
+      {isLoggedIn && !post.isAuthor ? (
+        <button
+          onClick={() => {
+            setReply(!isReply);
+          }}
+        >
+          Reply
+        </button>
+      ) : null}
       {isReply ? <Newmessage postid={post._id} /> : null}
     </div>
   );

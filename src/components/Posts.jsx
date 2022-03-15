@@ -4,11 +4,11 @@ import { useEffect } from 'react';
 import { getAllPosts } from '../apiFunction';
 import Post from './Post';
 
-const Posts = (props) => {
+const Posts = ({ isLoggedIn }) => {
   const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
-    if (window.localStorage.getItem('token')) {
+    if (isLoggedIn) {
       const token = window.localStorage.getItem('token');
       getAllPosts(setAllPosts, token);
       console.log('we give the token');
@@ -24,7 +24,7 @@ const Posts = (props) => {
       <h1>Hello this is the post container</h1>
       <input type="text" placeholder="SEARCH POSTS" />
       {allPosts.map((post, i) => {
-        return <Post post={post} index={i} />;
+        return <Post isLoggedIn={isLoggedIn} post={post} index={i} />;
       })}
     </div>
   );

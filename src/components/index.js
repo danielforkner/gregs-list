@@ -7,3 +7,4 @@ export { default as Newpost } from './Newpost';
 export { default as Myposts } from './Myposts';
 export { default as Newmessage } from './Newmessage';
 export { default as Post } from './Post';
+export { default as Profile } from './Profile';

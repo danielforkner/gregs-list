@@ -19,6 +19,9 @@ const NavBar = (props) => {
             <Link to="/posts">
               <button>All Posts</button>
             </Link>
+            <Link to="/profile">
+              <button>My Profile</button>
+            </Link>
           </div>
         </div>
       </div>
