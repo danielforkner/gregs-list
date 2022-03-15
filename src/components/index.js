@@ -4,3 +4,6 @@ export { default as Posts } from './Posts';
 export { default as Register } from './Register';
 export { default as Login } from './Login';
 export { default as Newpost } from './Newpost';
+export { default as Myposts } from './Myposts';
+export { default as Newmessage } from './Newmessage';
+export { default as Post } from './Post';

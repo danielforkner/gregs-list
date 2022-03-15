@@ -6,6 +6,7 @@ export const getAllPosts = async (setAllPosts) => {
     const response = await fetch(`${BASEURL}${COHORT}/posts`);
     const data = await response.json();
     setAllPosts(data.data.posts);
+    console.log(data.data.posts);
     if (response.error) throw response.error;
   } catch (error) {
     console.error(error);

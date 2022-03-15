@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
   return (
@@ -6,9 +7,18 @@ const NavBar = (props) => {
       <div className="link_container">
         <div>
           <div className="nav_item">
-            <button>Register</button>
-            <button>Login</button>
-            <button>New post</button>
+            <Link to="/register">
+              <button>Register</button>
+            </Link>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+            <Link to="/posts/newpost">
+              <button>New post</button>
+            </Link>
+            <Link to="/posts">
+              <button>All Posts</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -2,51 +2,56 @@
 
 import React, { useState } from 'react';
 import { loginUser } from '../apiFunction';
-import {Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
-const Login = () => { const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-return (
-  <div className="loginComponent">
-    <div>Login PAGE</div>
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        console.log('Username:', username, 'Password:', password);
-        loginUser(username,password)
-        setUsername('');
-        setPassword('');
-      }}
-    >
-
-      <input
-        value={username}
-        type="text"
-        placeholder="username"
-        onChange={(e) => {
-          setUsername(e.target.value);
+  return (
+    <div className="loginComponent">
+      <div>Login PAGE</div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log('Username:', username, 'Password:', password);
+          loginUser(username, password);
+          if (window.localStorage.getItem('token')) {
+            // console.log('we are in the if statement');
+            // return <Redirect to="/posts" />;
+          }
+          setUsername('');
+          setPassword('');
         }}
-      />
-      <input
-        value={password}
-        type="text"
-        placeholder="password"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button type="submit">Login</button>
-    </form>
-    <p> If you dont have an account Register Here</p>
-  <Link to="/register">
-<button>
-  Redgister
-</button>
-</Link>
-  </div>
-);}
+      >
+        <input
+          value={username}
+          type="text"
+          placeholder="username"
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
+        <input
+          value={password}
+          type="text"
+          placeholder="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <button type="submit">Login</button>
+      </form>
+      <p> View posts as a guest</p>
+      <Link to="/posts">
+        <button>Guest</button>
+      </Link>
+      <p> If you dont have an account Register Here</p>
+      <Link to="/register">
+        <button>Redgister</button>
+      </Link>
+    </div>
+  );
+};
 
-
-
-export default Login
+export default Login;
