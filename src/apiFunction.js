@@ -77,3 +77,24 @@ export const createPost = async (newPost, token) => {
     console.error(error);
   }
 };
+
+export const submitMessage = async (message, token, postid) => {
+  try {
+    const response = await fetch(`${BASEURL}${COHORT}/posts/${postid}/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        message:{
+          content:message
+        } 
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}

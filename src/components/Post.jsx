@@ -21,7 +21,7 @@ const Post = ({ post, index }) => {
       >
         Reply
       </button>
-      {isReply ? <Newmessage /> : null}
+      {isReply ? <Newmessage postid= {post._id}/> : null}
     </div>
   );
 };
