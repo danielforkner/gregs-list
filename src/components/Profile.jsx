@@ -1,20 +1,20 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { getProfile, removePost } from "../apiFunction";
-import Newpost from "./Newpost";
-import Editpost from "./Editpost";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { getProfile, removePost } from '../apiFunction';
+import Newpost from './Newpost';
+import Editpost from './Editpost';
 
 const Profile = ({ setIsLoggedIn }) => {
   const [showEditPost, setEditPost] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const [profile, setProfile] = useState({});
-  const token = window.localStorage.getItem("token");
+  const token = window.localStorage.getItem('token');
 
   useEffect(() => {
     const setLogin = async () => {
-      if (window.localStorage.getItem("token")) {
+      if (window.localStorage.getItem('token')) {
         await setIsLoggedIn(true);
-        const token = window.localStorage.getItem("token");
+        const token = window.localStorage.getItem('token');
         const data = await getProfile(token);
         setProfile(data.data);
       } else {
@@ -49,7 +49,7 @@ const Profile = ({ setIsLoggedIn }) => {
           setShowNewPost(!showNewPost);
         }}
       >
-        {!showNewPost ? "CreateNewPost" : "cancel"}
+        {!showNewPost ? 'CreateNewPost' : 'cancel'}
       </button>
       {showNewPost ? <Newpost setShowNewPost={setShowNewPost} /> : null}
       {profile.posts
@@ -59,7 +59,7 @@ const Profile = ({ setIsLoggedIn }) => {
             } else {
               return (
                 <div>
-                  {post.title}{" "}
+                  {post.title}{' '}
                   <button
                     onClick={() => {
                       setEditPost(!showEditPost);
@@ -67,7 +67,9 @@ const Profile = ({ setIsLoggedIn }) => {
                   >
                     Edit Post
                   </button>
-                  {showEditPost ? <Editpost setEditPost={setEditPost} /> : null}
+                  {showEditPost ? (
+                    <Editpost setEditPost={setEditPost} POST_ID={post._id} />
+                  ) : null}
                   <button
                     onClick={() => {
                       const updateProfile = async () => {

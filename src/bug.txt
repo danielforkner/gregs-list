@@ -8,3 +8,5 @@ NAVBAR COMPONENT - this not working
       setIsLoggedIn(true);
     }
   }, []);
+
+  showEditPost applies to all posts in profile, instead of just one

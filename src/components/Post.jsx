@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { removePost } from '../apiFunction';
 import Newmessage from './Newmessage';
+import Singlepost from './Singlepost';
 
 const Post = ({ post, index, isLoggedIn }) => {
   let token;
@@ -25,14 +26,8 @@ const Post = ({ post, index, isLoggedIn }) => {
           </button>
         </div>
       ) : null}
-      <p>
-        <em>{`By ${post.author.username} on ${post.createdAt.slice(
-          0,
-          10
-        )}`}</em>
-      </p>
       <p>Location: {post.location}</p>
-      <p>{post.description}</p>
+      <button>View Post</button>
       {!post.isAuthor ? (
         <button
           onClick={() => {

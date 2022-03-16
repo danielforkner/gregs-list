@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { createPost } from "../apiFunction";
+import React, { useState } from 'react';
+import { editPost } from '../apiFunction';
 
-const Editpost = ({ setEditPost }) => {
+const Editpost = ({ setEditPost, POST_ID }) => {
   const [checked, setChecked] = useState(false);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [location, setLocation] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [location, setLocation] = useState('');
   const [deliver, setDeliver] = useState(false);
 
   return (
@@ -15,23 +15,21 @@ const Editpost = ({ setEditPost }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const newPost = {
+          const editedPost = {
             title: title,
             description: description,
             price: price,
             location: location,
             willDeliver: deliver,
           };
-          console.log(newPost);
-          createPost(newPost, window.localStorage.getItem("token"));
-          setTitle("");
-          setDescription("");
-          setPrice("");
-          setLocation("");
+          editPost(editedPost, window.localStorage.getItem('token'), POST_ID); // CHANGE TO EDIT POST
+          setTitle('');
+          setDescription('');
+          setPrice('');
+          setLocation('');
           setDeliver(false);
           setChecked(false);
           setEditPost(false);
-          console.log(checked);
         }}
       >
         <input
@@ -85,9 +83,9 @@ const Editpost = ({ setEditPost }) => {
               setChecked(!checked);
               console.log(checked);
               setDeliver(
-                event.target.value === "false"
-                  ? (event.target.value = "true")
-                  : (event.target.value = "false")
+                event.target.value === 'false'
+                  ? (event.target.value = 'true')
+                  : (event.target.value = 'false')
               );
               console.log(event.target.value);
             }}

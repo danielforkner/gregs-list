@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { getAllPosts } from '../apiFunction';
 import Post from './Post';
+import Singlepost from './Singlepost';
 
 const Posts = ({ isLoggedIn, setIsLoggedIn }) => {
   const [allPosts, setAllPosts] = useState([]);

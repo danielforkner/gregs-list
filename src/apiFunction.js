@@ -91,6 +91,25 @@ export const createPost = async (newPost, token) => {
   }
 };
 
+export const editPost = async (editPost, token, POST_ID) => {
+  try {
+    const response = await fetch(`${BASEURL}${COHORT}/posts/${POST_ID}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: editPost,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const submitMessage = async (message, token, postid) => {
   try {
     const response = await fetch(
