@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {
-  Posts,
-  Register,
-  Navbar,
-  Login,
-  Newpost,
-  Myposts,
-  Profile,
-} from './components';
+import { Posts, Register, Navbar, Login, Newpost, Profile } from './components';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,17 +13,19 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar isLoggedIn={isLoggedIn} />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/posts/newpost">
           <Newpost isLoggedIn={isLoggedIn} />
         </Route>
         <Route path="/profile">
-          <Profile isLoggedIn={isLoggedIn} />
+          <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/posts">
-          <Posts isLoggedIn={isLoggedIn} />
-          <Myposts isLoggedIn={isLoggedIn} />
+          <div className="postsPage">
+            <Posts isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            {isLoggedIn ? <Profile isLoggedIn={isLoggedIn} /> : null}
+          </div>
         </Route>
         <Route path="/register">
           <Register isLoggedIn={isLoggedIn} />

@@ -4,19 +4,23 @@ import { useEffect } from 'react';
 import { getAllPosts } from '../apiFunction';
 import Post from './Post';
 
-const Posts = ({ isLoggedIn }) => {
+const Posts = ({ isLoggedIn, setIsLoggedIn }) => {
   const [allPosts, setAllPosts] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerms, setSearchTerms] = useState('');
 
-  useEffect(async () => {
-    if (isLoggedIn) {
-      const token = window.localStorage.getItem('token');
-      getAllPosts(setAllPosts, token);
-    } else {
-      console.log('we DO NOT give the token');
-      getAllPosts(setAllPosts);
-    }
+  // check if there is a login and getposts with token
+  useEffect(() => {
+    const setLogin = async () => {
+      if (window.localStorage.getItem('token')) {
+        await setIsLoggedIn(true);
+        const token = window.localStorage.getItem('token');
+        getAllPosts(setAllPosts, token);
+      } else {
+        getAllPosts(setAllPosts);
+      }
+    };
+    setLogin();
   }, []);
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const Posts = ({ isLoggedIn }) => {
   }, [allPosts]);
 
   return (
-    <div>
+    <div className="allPostsContainer">
       {' '}
       <h1>Hello this is the post container</h1>
       <input

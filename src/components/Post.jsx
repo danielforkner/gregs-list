@@ -33,7 +33,7 @@ const Post = ({ post, index, isLoggedIn }) => {
       </p>
       <p>Location: {post.location}</p>
       <p>{post.description}</p>
-      {isLoggedIn && !post.isAuthor ? (
+      {!post.isAuthor ? (
         <button
           onClick={() => {
             setReply(!isReply);

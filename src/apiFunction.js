@@ -11,8 +11,10 @@ export const getAllPosts = async (setAllPosts, token) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log('we gave the token to getAllPosts');
     } else {
       response = await fetch(`${BASEURL}${COHORT}/posts`);
+      console.log('we did not give the token to getAllPosts');
     }
     const data = await response.json();
     console.log(response);
@@ -129,7 +131,7 @@ export const getProfile = async (token) => {
   }
 };
 
-export const removePost = async (id, token) => {
+export const removePost = async (id, token, profile) => {
   try {
     const response = await fetch(`${BASEURL}${COHORT}/posts/${id}`, {
       method: 'DELETE',
@@ -139,8 +141,12 @@ export const removePost = async (id, token) => {
       },
     });
     const data = await response.json();
-    console.log('our Delete', data);
   } catch (error) {
     console.error(error);
+  } finally {
+    // refresh the profile page with the removed posts gone
+    profile.posts.filter((post) => {
+      post._id !== id;
+    });
   }
 };

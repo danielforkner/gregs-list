@@ -1,7 +1,10 @@
 defaultChecked={checked} is not working on NewPost.jsx for the checkbox input
 
-   {isLoggedIn ? (
-              <Link to="/profile">
-                <button>My Profile</button>
-              </Link>
-            ) : null}
+delete post on profile page is not auto-re-rendering
+
+NAVBAR COMPONENT - this not working
+  useEffect(() => {
+    if (window.localStorage.getItem('token')) {
+      setIsLoggedIn(true);
+    }
+  }, []);

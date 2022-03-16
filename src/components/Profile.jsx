@@ -2,15 +2,26 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getProfile, removePost } from '../apiFunction';
 
-const Profile = () => {
+const Profile = ({ setIsLoggedIn }) => {
   const [profile, setProfile] = useState({});
   const token = window.localStorage.getItem('token');
-  useEffect(async () => {
-    const data = await getProfile(token);
-    setProfile(data.data);
+
+  useEffect(() => {
+    const setLogin = async () => {
+      if (window.localStorage.getItem('token')) {
+        await setIsLoggedIn(true);
+        const token = window.localStorage.getItem('token');
+        const data = await getProfile(token);
+        setProfile(data.data);
+      } else {
+        // render "YOU ARE NOT LOGGED IN"
+      }
+    };
+    setLogin();
   }, []);
+
   return (
-    <div>
+    <div className="profileContainer">
       <h1>My Profile</h1>
       <h1>My Messages</h1>
       {profile.messages
@@ -39,11 +50,15 @@ const Profile = () => {
                   {post.title}{' '}
                   <button
                     onClick={() => {
-                      removePost(post._id, token);
+                      const updateProfile = async () => {
+                        await removePost(post._id, token, profile);
+                        setProfile(profile);
+                      };
+                      updateProfile();
                     }}
                   >
                     Delete
-                  </button>{' '}
+                  </button>
                 </div>
               );
             }
