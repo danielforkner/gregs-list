@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Posts, Register, Navbar, Login, Newpost, Profile } from './components';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  Posts,
+  Register,
+  Navbar,
+  Login,
+  Newpost,
+  Profile,
+  Singlepost,
+} from "./components";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    if (window.localStorage.getItem('token')) {
+    if (window.localStorage.getItem("token")) {
       setIsLoggedIn(true);
     }
   }, []);
@@ -15,6 +23,9 @@ const App = () => {
     <Router>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
+        <Route path="/posts/:postid">
+          <Singlepost />
+        </Route>
         <Route path="/posts/newpost">
           <Newpost isLoggedIn={isLoggedIn} />
         </Route>
