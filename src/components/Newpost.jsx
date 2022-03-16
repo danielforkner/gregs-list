@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { createPost } from '../apiFunction';
+import React, { useState } from "react";
+import { createPost } from "../apiFunction";
 
-const Newpost = () => {
+const Newpost = ({ setShowNewPost }) => {
   const [checked, setChecked] = useState(false);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [location, setLocation] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
   const [deliver, setDeliver] = useState(false);
 
   return (
@@ -23,13 +23,14 @@ const Newpost = () => {
             willDeliver: deliver,
           };
           console.log(newPost);
-          createPost(newPost, window.localStorage.getItem('token'));
-          setTitle('');
-          setDescription('');
-          setPrice('');
-          setLocation('');
+          createPost(newPost, window.localStorage.getItem("token"));
+          setTitle("");
+          setDescription("");
+          setPrice("");
+          setLocation("");
           setDeliver(false);
           setChecked(false);
+          setShowNewPost(false);
           console.log(checked);
         }}
       >
@@ -84,9 +85,9 @@ const Newpost = () => {
               setChecked(!checked);
               console.log(checked);
               setDeliver(
-                event.target.value === 'false'
-                  ? (event.target.value = 'true')
-                  : (event.target.value = 'false')
+                event.target.value === "false"
+                  ? (event.target.value = "true")
+                  : (event.target.value = "false")
               );
               console.log(event.target.value);
             }}

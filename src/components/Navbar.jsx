@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.production.min';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useEffect } from "react/cjs/react.production.min";
 
 const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
   // useEffect(() => {
@@ -20,11 +20,6 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
             <Link to="/login">
               <button>Login</button>
             </Link>
-            {isLoggedIn ? (
-              <Link to="/posts/newpost">
-                <button>New post</button>
-              </Link>
-            ) : null}
             <Link to="/posts">
               <button>All Posts</button>
             </Link>
