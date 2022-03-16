@@ -47,3 +47,20 @@
   align-items: center;
   gap: 10px;
 }
+
+.editPostContainer {
+  border: 1px solid red;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editPostContainer > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

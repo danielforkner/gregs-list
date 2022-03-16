@@ -2,8 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getProfile, removePost } from "../apiFunction";
 import Newpost from "./Newpost";
+import Editpost from "./Editpost";
 
 const Profile = ({ setIsLoggedIn }) => {
+  const [showEditPost, setEditPost] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const [profile, setProfile] = useState({});
   const token = window.localStorage.getItem("token");
@@ -58,6 +60,14 @@ const Profile = ({ setIsLoggedIn }) => {
               return (
                 <div>
                   {post.title}{" "}
+                  <button
+                    onClick={() => {
+                      setEditPost(!showEditPost);
+                    }}
+                  >
+                    Edit Post
+                  </button>
+                  {showEditPost ? <Editpost setEditPost={setEditPost} /> : null}
                   <button
                     onClick={() => {
                       const updateProfile = async () => {
