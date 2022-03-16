@@ -1,5 +1,10 @@
 .postsPage {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.profileContainer {
+  width: 100%;
 }
 
 .post {

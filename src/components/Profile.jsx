@@ -4,7 +4,7 @@ import { getProfile, removePost } from '../apiFunction';
 import Newpost from './Newpost';
 import Editpost from './Editpost';
 
-const Profile = ({ setIsLoggedIn }) => {
+const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showEditPost, setEditPost] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const [profile, setProfile] = useState({});
@@ -12,14 +12,9 @@ const Profile = ({ setIsLoggedIn }) => {
 
   useEffect(() => {
     const setLogin = async () => {
-      if (window.localStorage.getItem('token')) {
-        await setIsLoggedIn(true);
-        const token = window.localStorage.getItem('token');
-        const data = await getProfile(token);
-        setProfile(data.data);
-      } else {
-        // render "YOU ARE NOT LOGGED IN"
-      }
+      const token = window.localStorage.getItem('token');
+      const data = await getProfile(token);
+      setProfile(data.data);
     };
     setLogin();
   }, []);

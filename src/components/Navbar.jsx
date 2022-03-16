@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useEffect } from "react/cjs/react.production.min";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react/cjs/react.production.min';
 
 const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
   // useEffect(() => {
@@ -14,12 +14,26 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
       <div className="link_container">
         <div>
           <div className="nav_item">
-            <Link to="/register">
-              <button>Register</button>
-            </Link>
-            <Link to="/login">
-              <button>Login</button>
-            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={() => {
+                  window.localStorage.removeItem('token');
+                  setIsLoggedIn(false);
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/register">
+                  <button>Register</button>
+                </Link>
+                <Link to="/login">
+                  <button>Login</button>
+                </Link>
+              </>
+            )}
+
             <Link to="/posts">
               <button>All Posts</button>
             </Link>
