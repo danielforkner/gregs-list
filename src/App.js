@@ -12,7 +12,7 @@ import {
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [allPosts, setAllPosts] = useState([]);
   useEffect(() => {
     if (window.localStorage.getItem("token")) {
       setIsLoggedIn(true);
@@ -24,7 +24,7 @@ const App = () => {
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/posts/:postid">
-          <Singlepost />
+          <Singlepost allPosts={allPosts} />
         </Route>
         <Route path="/posts/newpost">
           <Newpost isLoggedIn={isLoggedIn} />
@@ -34,7 +34,12 @@ const App = () => {
         </Route>
         <Route path="/posts">
           <div className="postsPage">
-            <Posts isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <Posts
+              isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              allPosts={allPosts}
+              setAllPosts={setAllPosts}
+            />
             {isLoggedIn ? <Profile isLoggedIn={isLoggedIn} /> : null}
           </div>
         </Route>

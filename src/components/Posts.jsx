@@ -1,21 +1,20 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { getAllPosts } from '../apiFunction';
-import Post from './Post';
-import Singlepost from './Singlepost';
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getAllPosts } from "../apiFunction";
+import Post from "./Post";
+import Singlepost from "./Singlepost";
 
-const Posts = ({ isLoggedIn, setIsLoggedIn }) => {
-  const [allPosts, setAllPosts] = useState([]);
+const Posts = ({ isLoggedIn, setIsLoggedIn, allPosts, setAllPosts }) => {
   const [searchResults, setSearchResults] = useState([]);
-  const [searchTerms, setSearchTerms] = useState('');
+  const [searchTerms, setSearchTerms] = useState("");
 
   // check if there is a login and getposts with token
   useEffect(() => {
     const setLogin = async () => {
-      if (window.localStorage.getItem('token')) {
+      if (window.localStorage.getItem("token")) {
         await setIsLoggedIn(true);
-        const token = window.localStorage.getItem('token');
+        const token = window.localStorage.getItem("token");
         getAllPosts(setAllPosts, token);
       } else {
         getAllPosts(setAllPosts);
@@ -30,7 +29,7 @@ const Posts = ({ isLoggedIn, setIsLoggedIn }) => {
 
   return (
     <div className="allPostsContainer">
-      {' '}
+      {" "}
       <h1>Hello this is the post container</h1>
       <input
         type="text"
@@ -53,8 +52,8 @@ const Posts = ({ isLoggedIn, setIsLoggedIn }) => {
             }
           });
           setSearchResults(result);
-          console.log('searchresults after change', searchResults);
-          console.log('allPosts after change', allPosts);
+          console.log("searchresults after change", searchResults);
+          console.log("allPosts after change", allPosts);
         }}
       />
       {searchResults.map((post, i) => {
