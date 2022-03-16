@@ -7,6 +7,7 @@
 }
 
 #app {
+  min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
 }
@@ -85,8 +86,18 @@
   padding: 10px;
 }
 
-.hidden {
-  display: none;
+.newMessageContainer > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newMessageContainer > form > button {
+  align-self: flex-start;
+}
+
+.newMessageContainer > form > textarea {
+  width: 50%;
+  min-height: 50%;
 }
 
 .newPostContainer {
@@ -141,4 +152,25 @@
 
 .nav_bar_container > img {
   width: 100px;
+}
+
+.singlePostContainer {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.singlePostMessages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.singlePostMessages > div {
+  border: 1px solid black;
 }

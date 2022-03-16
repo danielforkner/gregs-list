@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getProfile, removePost } from '../apiFunction';
 import Newpost from './Newpost';
 import Editpost from './Editpost';
+import { Link } from 'react-router-dom';
 
 const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showEditPost, setEditPost] = useState(false);
@@ -30,7 +31,9 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
             return (
               <div>
                 {message.content}
-                <button>see post</button>
+                <Link to={`/posts/${message.post._id}`}>
+                  <button>see post</button>
+                </Link>
               </div>
             );
           })

@@ -9,10 +9,10 @@ NAVBAR COMPONENT - this not working
     }
   }, []);
 
-  showEditPost applies to all posts in profile, instead of just one
-
+showEditPost applies to all posts in profile, instead of just one
 
 profile messages SEE POST btn should take it to single poll page
 
+add EDIT POST btn to singlepost and allPosts container
 
-
+need to resize the textarea on the post reply form

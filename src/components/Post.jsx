@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { removePost } from '../apiFunction';
 import Newmessage from './Newmessage';
-import Singlepost from './Singlepost';
 
 const Post = ({ post, index, isLoggedIn }) => {
   let token;
@@ -38,7 +37,7 @@ const Post = ({ post, index, isLoggedIn }) => {
             setReply(!isReply);
           }}
         >
-          Reply
+          {!isReply ? 'Reply' : 'Cancel Reply'}
         </button>
       ) : null}
       {isReply ? <Newmessage postid={post._id} /> : null}
