@@ -12,12 +12,13 @@ const Post = ({ post, index, isLoggedIn }) => {
 
   const [isReply, setReply] = useState(false);
   return (
-    <div key={index} className="post">
-      {' '}
+    <div
+      key={index}
+      className={post.isAuthor === true && isLoggedIn ? 'myPost' : 'post'}
+    >
       <h4>{post.title} </h4>
       {post.isAuthor === true && isLoggedIn ? (
         <div>
-          <h1>WE WROTE THIS</h1>{' '}
           <button
             onClick={() => {
               removePost(post._id, token);

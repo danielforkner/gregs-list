@@ -1,16 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+#app {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 .postsPage {
+  margin-top: 15px;
+  max-height: inherit;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
 
+.allPostsContainer {
+  position: relative;
+  max-height: inherit;
+  overflow-y: scroll;
+}
+
+#allPostsTitle {
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
 .profileContainer {
+  position: relative;
+  max-height: inherit;
+  overflow-y: scroll;
   width: 100%;
+  padding: 10px;
+}
+
+#profileTitle {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.profileContainer > h1 {
+  border-bottom: 1px solid black;
 }
 
 .post {
@@ -19,12 +56,22 @@
   padding: 10px;
 }
 
-.post > h4 {
+.myPost {
+  border: 4px solid blue;
+  background-color: yellow;
+  box-shadow: 4px 4px 10px green;
+  margin: 10px;
+  padding: 10px;
+}
+
+.post > h4,
+.myPost > h4 {
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.post > p {
+.post > p,
+.myPost > p {
   font-size: 1rem;
 }
 
@@ -85,6 +132,7 @@
   margin: 0;
   padding: 10px;
 }
+
 .link_container {
   display: flex;
   gap: 10px;

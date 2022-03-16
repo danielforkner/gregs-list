@@ -21,11 +21,18 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
 
   return (
     <div className="profileContainer">
-      <h1>My Profile</h1>
+      <div id="profileTitle">
+        <h1>{profile.username}</h1>
+      </div>
       <h1>My Messages</h1>
       {profile.messages
         ? profile.messages.map((message, i) => {
-            return <div>{message.content} </div>;
+            return (
+              <div>
+                {message.content}
+                <button>see post</button>
+              </div>
+            );
           })
         : null}
       <h1>My Inbox</h1>
