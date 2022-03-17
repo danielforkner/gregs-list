@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   Posts,
   Register,
@@ -16,7 +11,6 @@ import {
 } from "./components";
 
 const App = () => {
-  let history = useHistory();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   useEffect(() => {
@@ -26,7 +20,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router history={history}>
+    <Router>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Switch>
         <Route path="/posts/:postid">
