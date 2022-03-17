@@ -51,9 +51,9 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       <Link to="/posts">
         <button>Guest</button>
       </Link>
-      <p> If you dont have an account Register Here</p>
+      <p> Don't have an account? </p>
       <Link to="/register">
-        <button>Redgister</button>
+        <button>Register Here</button>
       </Link>
     </div>
   );

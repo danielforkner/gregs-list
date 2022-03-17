@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useEffect } from "react/cjs/react.production.min";
-import Gregs_list from "../Gregs_list.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react/cjs/react.production.min';
+import Gregs_list from '../Gregs_list.png';
 const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
   // useEffect(() => {
   //   if (window.localStorage.getItem('token')) {
@@ -16,7 +16,7 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
         {isLoggedIn ? (
           <button
             onClick={() => {
-              window.localStorage.removeItem("token");
+              window.localStorage.removeItem('token');
               setIsLoggedIn(false);
             }}
           >
@@ -24,9 +24,9 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
           </button>
         ) : (
           <>
-            <Link to="/register">
+            {/* <Link to="/register">
               <button>Register</button>
-            </Link>
+            </Link> */}
             <Link to="/login">
               <button>Login</button>
             </Link>
