@@ -207,6 +207,10 @@
   justify-content: end;
 }
 
+.link_container button {
+  padding: 15px;
+}
+
 .nav_bar_container > img {
   max-height: inherit;
 }
