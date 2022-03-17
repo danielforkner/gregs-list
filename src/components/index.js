@@ -9,3 +9,4 @@ export { default as Post } from './Post';
 export { default as Profile } from './Profile';
 export { default as Editpost } from './Editpost';
 export { default as Singlepost } from './Singlepost';
+export { default as Hamburgermenu } from './Singlepost';

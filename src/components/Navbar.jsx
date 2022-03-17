@@ -1,17 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.production.min';
 import Gregs_list from '../Gregs_list.png';
+import hamburger from '../hamburger.png';
+import Hamburgermenu from './Hamburgermenu';
 const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
-  // useEffect(() => {
-  //   if (window.localStorage.getItem('token')) {
-  //     setIsLoggedIn(true);
-  //   }
-  // }, []);
-
   return (
     <div className="nav_bar_container">
-      <img src={Gregs_list} />
+      <Hamburgermenu isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <img className="logo" src={Gregs_list} />
+      <div className="hamburger">
+        <img
+          src={hamburger}
+          onClick={() => {
+            const menu = document.querySelector('.hamburgerMenu');
+            menu.classList.remove('goBackUp');
+            menu.classList.add('dropDown');
+          }}
+        />
+      </div>
       <div className="link_container">
         {isLoggedIn ? (
           <button
@@ -24,9 +30,6 @@ const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
           </button>
         ) : (
           <>
-            {/* <Link to="/register">
-              <button>Register</button>
-            </Link> */}
             <Link to="/login">
               <button>Login</button>
             </Link>

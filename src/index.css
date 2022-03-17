@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 :root {
@@ -59,10 +59,10 @@
   position: sticky;
   top: 0;
   background-color: #fff;
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
 }
 #username {
-  font-family: "Permanent Marker", cursive;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .profileContainer > h1 {
@@ -187,6 +187,20 @@
   max-height: var(--navHeight);
 }
 
+.hamburgerMenu {
+  padding: 15px;
+  position: absolute;
+  top: -1000px;
+  right: 0;
+  background-color: black;
+  color: white;
+  z-index: 900;
+}
+
+.hamburgerMenu > ul {
+  list-style-type: none;
+}
+
 .link_container {
   display: flex;
   gap: 10px;
@@ -226,4 +240,58 @@
 .profileitem {
   display: flex;
   justify-content: space-between;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.dropDown {
+  animation-name: dropDown;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.goBackUp {
+  animation-name: goUp;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+
+.closeMenu {
+  cursor: pointer;
+}
+
+/* ANIMATIONS */
+@keyframes dropDown {
+  0% {
+    top: -450px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes goUp {
+  0% {
+    top: 0;
+  }
+  99% {
+    top: -450px;
+  }
+  100% {
+    top: -1000px;
+  }
+}
+
+/* MEDIA */
+@media screen and (max-width: 950px) {
+  .link_container {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .logo {
+    height: 50px;
+  }
 }
