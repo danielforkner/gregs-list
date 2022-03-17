@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  background: url("../public/images/background\(1\).jpg");
 }
 
 :root {
@@ -59,10 +63,10 @@
   position: sticky;
   top: 0;
   background-color: #fff;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
 }
 #username {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
 }
 
 .profileContainer > h1 {
@@ -118,7 +122,8 @@
 }
 
 .loginComponent {
-  border: 1px solid green;
+  border: 1px solid darkslategray;
+  background-color: gray;
   position: absolute;
   top: 50%;
   left: 50%;
