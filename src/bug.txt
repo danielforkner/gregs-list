@@ -1,4 +1,9 @@
-defaultChecked={checked} is not working on NewPost.jsx for the checkbox input
+apiFunction.js:57 
+        
+       TypeError: Cannot read properties of null (reading 'token')
+    at loginUser (apiFunction.js:53:1)
+
+    efaultChecked={checked} is not working on NewPost.jsx for the checkbox input
 
 delete post on profile page is not auto-re-rendering
 

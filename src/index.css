@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 * {
   padding: 0;
@@ -44,7 +44,7 @@
   position: sticky;
   top: 0;
   background-color: #fff;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
 }
 
 .profileContainer > h1 {
@@ -83,6 +83,11 @@
 
 .loginComponent {
   border: 1px solid green;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.5rem 0.5rem 5px;
   padding: 10px;
 }
 

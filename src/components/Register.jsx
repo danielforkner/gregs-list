@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { registerUser } from '../apiFunction';
+import React, { useState } from "react";
+import { registerUser } from "../apiFunction";
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="registerComponent">
@@ -11,10 +11,10 @@ const Register = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log('Username:', username, 'Password:', password);
-          registerUser(username,password)
-          setUsername('');
-          setPassword('');
+          console.log("Username:", username, "Password:", password);
+          registerUser(username, password);
+          setUsername("");
+          setPassword("");
         }}
       >
         <input
@@ -27,7 +27,7 @@ const Register = () => {
         />
         <input
           value={password}
-          type="text"
+          type="password"
           placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);

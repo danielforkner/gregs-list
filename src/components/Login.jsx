@@ -1,15 +1,15 @@
 //Username: jaden67 Password: turtles
 
-import React, { useState } from 'react';
-import { loginUser } from '../apiFunction';
-import { Link, Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import { loginUser } from "../apiFunction";
+import { Link, Redirect } from "react-router-dom";
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   if (isLoggedIn) {
-    console.log('we are already logged in');
+    console.log("we are already logged in");
   }
 
   return (
@@ -18,20 +18,20 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log('Username:', username, 'Password:', password);
+          console.log("Username:", username, "Password:", password);
           loginUser(username, password);
-          if (window.localStorage.getItem('token')) {
+          if (window.localStorage.getItem("token")) {
             setIsLoggedIn(true);
             // console.log('we are in the if statement');
             // return <Redirect to="/posts" />;
           }
-          setUsername('');
-          setPassword('');
+          setUsername("");
+          setPassword("");
         }}
       >
         <input
           value={username}
-          type="text"
+          type="password"
           placeholder="username"
           onChange={(e) => {
             setUsername(e.target.value);

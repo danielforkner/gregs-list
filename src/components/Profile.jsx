@@ -1,21 +1,22 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { getProfile, removePost } from '../apiFunction';
-import Newpost from './Newpost';
-import Editpost from './Editpost';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useState, useEffect } from "react";
+import { getProfile, removePost } from "../apiFunction";
+import Newpost from "./Newpost";
+import Editpost from "./Editpost";
+import { Link } from "react-router-dom";
 
 const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showEditPost, setEditPost] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const [profile, setProfile] = useState({});
-  const token = window.localStorage.getItem('token');
+  const token = window.localStorage.getItem("token");
 
   useEffect(() => {
     const setLogin = async () => {
-      const token = window.localStorage.getItem('token');
+      const token = window.localStorage.getItem("token");
       const data = await getProfile(token);
       setProfile(data.data);
+      console.log("our profile", data.data);
     };
     setLogin();
   }, []);
@@ -44,7 +45,14 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
             let userName = profile.username;
             let author = message.fromUser.username;
             if (userName !== author) {
-              return <div>{message.content} </div>;
+              return (
+                <>
+                  <div>{message.content} </div>
+                  <Link to={`/posts/${message.post._id}`}>
+                    <button>see post</button>
+                  </Link>
+                </>
+              );
             }
           })
         : null}
@@ -54,7 +62,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
           setShowNewPost(!showNewPost);
         }}
       >
-        {!showNewPost ? 'CreateNewPost' : 'cancel'}
+        {!showNewPost ? "CreateNewPost" : "cancel"}
       </button>
       {showNewPost ? <Newpost setShowNewPost={setShowNewPost} /> : null}
       {profile.posts
@@ -64,7 +72,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
             } else {
               return (
                 <div>
-                  {post.title}{' '}
+                  {post.title}{" "}
                   <button
                     onClick={() => {
                       setEditPost(!showEditPost);
