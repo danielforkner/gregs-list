@@ -33,7 +33,9 @@ const App = () => {
           <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/posts">
-          <div className="postsPage">
+          <div
+            className={isLoggedIn ? "postsPage loggedIn" : "postsPage Guest"}
+          >
             <Posts
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}

@@ -15,11 +15,16 @@
 .postsPage {
   margin-top: 15px;
   max-height: inherit;
+}
+.postsPage.loggedIn {
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
+.postsPage.guest {
+  display: block;
+}
 
-.allPostsContainer {
+.allPosts {
   position: relative;
   max-height: inherit;
   overflow-y: scroll;
