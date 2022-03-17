@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { submitMessage } from '../apiFunction';
 
-const Newmessage = ({ postid }) => {
+const Newmessage = ({ postid, setReply }) => {
   const [message, setMessage] = useState('');
   return (
     <div className="newMessageContainer">
@@ -9,6 +9,7 @@ const Newmessage = ({ postid }) => {
         onSubmit={(e) => {
           e.preventDefault();
           submitMessage(message, window.localStorage.getItem('token'), postid);
+          setReply(false);
           setMessage('');
         }}
       >

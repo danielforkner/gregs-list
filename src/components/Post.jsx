@@ -40,7 +40,7 @@ const Post = ({ post, index, isLoggedIn }) => {
           {!isReply ? 'Reply' : 'Cancel Reply'}
         </button>
       ) : null}
-      {isReply ? <Newmessage postid={post._id} /> : null}
+      {isReply ? <Newmessage postid={post._id} setReply={setReply} /> : null}
     </div>
   );
 };

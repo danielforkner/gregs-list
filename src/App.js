@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   Posts,
   Register,
@@ -8,13 +8,13 @@ import {
   Newpost,
   Profile,
   Singlepost,
-} from "./components";
+} from './components';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
   useEffect(() => {
-    if (window.localStorage.getItem("token")) {
+    if (window.localStorage.getItem('token')) {
       setIsLoggedIn(true);
     }
   }, []);
@@ -34,7 +34,7 @@ const App = () => {
         </Route>
         <Route path="/posts">
           <div
-            className={isLoggedIn ? "postsPage loggedIn" : "postsPage Guest"}
+            className={isLoggedIn ? 'postsPage loggedIn' : 'postsPage Guest'}
           >
             <Posts
               isLoggedIn={isLoggedIn}
@@ -46,7 +46,7 @@ const App = () => {
           </div>
         </Route>
         <Route path="/register">
-          <Register isLoggedIn={isLoggedIn} />
+          <Register setIsLoggedIn={setIsLoggedIn} />
         </Route>
         <Route path="/">
           <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />

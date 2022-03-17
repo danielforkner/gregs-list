@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { registerUser } from "../apiFunction";
+import React, { useState } from 'react';
+import { registerUser } from '../apiFunction';
+import { useHistory } from 'react-router-dom';
 
-const Register = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const Register = ({ setIsLoggedIn }) => {
+  const history = useHistory();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className="registerComponent">
@@ -11,10 +13,10 @@ const Register = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("Username:", username, "Password:", password);
-          registerUser(username, password);
-          setUsername("");
-          setPassword("");
+          console.log('Username:', username, 'Password:', password);
+          registerUser(username, password, history, setIsLoggedIn);
+          setUsername('');
+          setPassword('');
         }}
       >
         <input

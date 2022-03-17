@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import Newmessage from "./Newmessage";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Newmessage from './Newmessage';
 
 const Singlepost = ({ allPosts, isLoggedIn }) => {
-  console.log("on single post page", allPosts);
+  console.log('on single post page', allPosts);
   const { postid } = useParams();
   console.log(typeof postid, typeof allPosts[0]._id);
   const [isReply, setReply] = useState(false);
@@ -34,10 +34,12 @@ const Singlepost = ({ allPosts, isLoggedIn }) => {
                   setReply(!isReply);
                 }}
               >
-                {!isReply ? "Reply" : "Cancel Reply"}
+                {!isReply ? 'Reply' : 'Cancel Reply'}
               </button>
             ) : null}
-            {isReply ? <Newmessage postid={post._id} /> : null}
+            {isReply ? (
+              <Newmessage setReply={setReply} postid={post._id} />
+            ) : null}
           </div>
           <div className="singlePostMessages">
             {post.messages.length > 0
@@ -47,8 +49,8 @@ const Singlepost = ({ allPosts, isLoggedIn }) => {
                       <p>{message.content}</p>
                       <p>
                         <em>
-                          By {message.fromUser.username} on{" "}
-                          {message.updatedAt.slice(0, 10)} at{" "}
+                          By {message.fromUser.username} on{' '}
+                          {message.updatedAt.slice(0, 10)} at{' '}
                           {message.updatedAt.slice(11, 19)}
                         </em>
                       </p>

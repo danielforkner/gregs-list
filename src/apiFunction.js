@@ -26,7 +26,12 @@ export const getAllPosts = async (setAllPosts, token) => {
   }
 };
 
-export const registerUser = async (userName, password) => {
+export const registerUser = async (
+  userName,
+  password,
+  history,
+  setIsLoggedIn
+) => {
   try {
     const response = await fetch(`${BASEURL}${COHORT}/users/register`, {
       method: 'POST',
@@ -44,12 +49,14 @@ export const registerUser = async (userName, password) => {
     const token = data.data.token;
     console.log(data);
     window.localStorage.setItem('token', token);
+    setIsLoggedIn(true);
+    history.push('/posts');
   } catch (error) {
     console.error(error);
   }
 };
 
-export const loginUser = async (userName, password) => {
+export const loginUser = async (userName, password, history, setIsLoggedIn) => {
   try {
     const response = await fetch(`${BASEURL}${COHORT}/users/login`, {
       method: 'POST',
@@ -65,8 +72,9 @@ export const loginUser = async (userName, password) => {
     });
     const data = await response.json();
     const token = data.data.token;
-    console.log(data);
     window.localStorage.setItem('token', token);
+    setIsLoggedIn(true);
+    history.push('/posts');
   } catch (error) {
     console.error(error);
   }
