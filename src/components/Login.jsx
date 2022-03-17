@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import { loginUser } from "../apiFunction";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
+  let history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,6 +25,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
             setIsLoggedIn(true);
             // console.log('we are in the if statement');
             // return <Redirect to="/posts" />;
+            history.push("/posts");
           }
           setUsername("");
           setPassword("");
@@ -31,7 +33,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       >
         <input
           value={username}
-          type="password"
+          type="text"
           placeholder="username"
           onChange={(e) => {
             setUsername(e.target.value);
@@ -39,7 +41,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         />
         <input
           value={password}
-          type="text"
+          type="password"
           placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);
@@ -47,10 +49,12 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         />
         <button type="submit">Login</button>
       </form>
-      <p> View posts as a guest</p>
-      <Link to="/posts">
-        <button>Guest</button>
-      </Link>
+      <>
+        <p> View posts as a guest</p>
+        <Link to="/posts">
+          <button>Guest</button>
+        </Link>{" "}
+      </>
       <p> Don't have an account? </p>
       <Link to="/register">
         <button>Register Here</button>
