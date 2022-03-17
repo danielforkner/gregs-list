@@ -56,7 +56,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
         {profile.messages
           ? profile.messages.map((message, i) => {
               return (
-                <div>
+                <div className="profileitem">
                   {message.content}
                   <Link to={`/posts/${message.post._id}`}>
                     <button>see post</button>
@@ -91,10 +91,12 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
               if (userName !== author) {
                 return (
                   <>
-                    <div>{message.content} </div>
-                    <Link to={`/posts/${message.post._id}`}>
-                      <button>see post</button>
-                    </Link>
+                    <div className="profileitem">
+                      {message.content}
+                      <Link to={`/posts/${message.post._id}`}>
+                        <button>see post</button>
+                      </Link>
+                    </div>
                   </>
                 );
               }
@@ -133,29 +135,34 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
                 return;
               } else {
                 return (
-                  <div>
-                    {post.title}{" "}
-                    <button
-                      onClick={() => {
-                        setEditPost(!showEditPost);
-                      }}
-                    >
-                      Edit Post
-                    </button>
-                    {showEditPost ? (
-                      <Editpost setEditPost={setEditPost} POST_ID={post._id} />
-                    ) : null}
-                    <button
-                      onClick={() => {
-                        const updateProfile = async () => {
-                          await removePost(post._id, token, profile);
-                          setProfile(profile);
-                        };
-                        updateProfile();
-                      }}
-                    >
-                      Delete
-                    </button>
+                  <div className="profileitem">
+                    {post.title}
+                    <div>
+                      <button
+                        onClick={() => {
+                          setEditPost(!showEditPost);
+                        }}
+                      >
+                        Edit Post
+                      </button>
+                      {showEditPost ? (
+                        <Editpost
+                          setEditPost={setEditPost}
+                          POST_ID={post._id}
+                        />
+                      ) : null}
+                      <button
+                        onClick={() => {
+                          const updateProfile = async () => {
+                            await removePost(post._id, token, profile);
+                            setProfile(profile);
+                          };
+                          updateProfile();
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 );
               }
