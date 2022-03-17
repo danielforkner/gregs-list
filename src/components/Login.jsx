@@ -5,7 +5,7 @@ import { loginUser } from "../apiFunction";
 import { Link, Redirect, useHistory } from "react-router-dom";
 
 const Login = ({ isLoggedIn, setIsLoggedIn }) => {
-  let history = useHistory();
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,8 +25,10 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
             setIsLoggedIn(true);
             // console.log('we are in the if statement');
             // return <Redirect to="/posts" />;
-            history.push("/posts");
+            console.log(history);
           }
+          history.push("/posts");
+
           setUsername("");
           setPassword("");
         }}
