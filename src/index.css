@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
 }
 
 :root {
@@ -58,7 +59,10 @@
   position: sticky;
   top: 0;
   background-color: #fff;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
+}
+#username {
+  font-family: "Permanent Marker", cursive;
 }
 
 .profileContainer > h1 {
@@ -85,8 +89,8 @@
 }
 
 .myPost {
-  border: 4px solid blue;
-  background-color: yellow;
+  border: 4px solid black;
+  background-color: lightgray;
   box-shadow: 4px 4px 10px green;
   margin: 10px;
   padding: 10px;
@@ -212,4 +216,9 @@
 
 .singlePostMessages > div {
   border: 1px solid black;
+}
+
+.postbuttons {
+  display: flex;
+  gap: 4px;
 }

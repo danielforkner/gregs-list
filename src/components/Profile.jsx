@@ -1,56 +1,56 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { getProfile, removePost } from '../apiFunction';
-import Newpost from './Newpost';
-import Editpost from './Editpost';
-import { Link, useHistory } from 'react-router-dom';
-import arrow_right from '../arrow_right.png';
-import arrow_down from '../arrow_down.png';
+import React from "react";
+import { useState, useEffect } from "react";
+import { getProfile, removePost } from "../apiFunction";
+import Newpost from "./Newpost";
+import Editpost from "./Editpost";
+import { Link, useHistory } from "react-router-dom";
+import arrow_right from "../arrow_right.png";
+import arrow_down from "../arrow_down.png";
 
 const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
   const history = useHistory();
   const [showEditPost, setEditPost] = useState(false);
   const [showNewPost, setShowNewPost] = useState(false);
   const [profile, setProfile] = useState({});
-  const token = window.localStorage.getItem('token');
+  const token = window.localStorage.getItem("token");
 
   useEffect(() => {
     const setLogin = async () => {
-      const token = window.localStorage.getItem('token');
+      const token = window.localStorage.getItem("token");
       const data = await getProfile(token);
       setProfile(data.data);
-      console.log('our profile', data.data);
+      console.log("our profile", data.data);
     };
     setLogin();
   }, []);
 
   useEffect(() => {
     if (!isLoggedIn) {
-      history.push('/posts');
+      history.push("/posts");
     }
   }, [isLoggedIn]);
 
   return (
     <div className="profileContainer">
       <div id="profileTitle">
-        <h1>{profile.username}</h1>
+        <h1 id="username">{profile.username}</h1>
       </div>
       <h1>
         <img
           className="arrowRight"
           src={`${arrow_right}`}
           onClick={(e) => {
-            document.querySelector('.myMessages').classList.toggle('hidden');
-            if (e.target.className === 'arrowRight') {
+            document.querySelector(".myMessages").classList.toggle("hidden");
+            if (e.target.className === "arrowRight") {
               e.target.src = arrow_down;
-              e.target.className = 'arrowDown';
+              e.target.className = "arrowDown";
             } else {
               e.target.src = arrow_right;
-              e.target.className = 'arrowRight';
+              e.target.className = "arrowRight";
             }
           }}
         />
-        My Messages{' '}
+        My Messages{" "}
       </h1>
       <div className="myMessages hidden">
         {profile.messages
@@ -71,17 +71,17 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
           className="arrowRight"
           src={`${arrow_right}`}
           onClick={(e) => {
-            document.querySelector('.myInbox').classList.toggle('hidden');
-            if (e.target.className === 'arrowRight') {
+            document.querySelector(".myInbox").classList.toggle("hidden");
+            if (e.target.className === "arrowRight") {
               e.target.src = arrow_down;
-              e.target.className = 'arrowDown';
+              e.target.className = "arrowDown";
             } else {
               e.target.src = arrow_right;
-              e.target.className = 'arrowRight';
+              e.target.className = "arrowRight";
             }
           }}
         />
-        My Inbox{' '}
+        My Inbox{" "}
       </h1>
       <div className="myInbox hidden">
         {profile.messages
@@ -106,24 +106,24 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
           className="arrowRight"
           src={`${arrow_right}`}
           onClick={(e) => {
-            document.querySelector('.myPosts').classList.toggle('hidden');
-            if (e.target.className === 'arrowRight') {
+            document.querySelector(".myPosts").classList.toggle("hidden");
+            if (e.target.className === "arrowRight") {
               e.target.src = arrow_down;
-              e.target.className = 'arrowDown';
+              e.target.className = "arrowDown";
             } else {
               e.target.src = arrow_right;
-              e.target.className = 'arrowRight';
+              e.target.className = "arrowRight";
             }
           }}
         />
-        My Posts{' '}
+        My Posts{" "}
       </h1>
       <button
         onClick={() => {
           setShowNewPost(!showNewPost);
         }}
       >
-        {!showNewPost ? 'CreateNewPost' : 'cancel'}
+        {!showNewPost ? "CreateNewPost" : "cancel"}
       </button>
       {showNewPost ? <Newpost setShowNewPost={setShowNewPost} /> : null}
       <div className="myPosts hidden">
@@ -134,7 +134,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
               } else {
                 return (
                   <div>
-                    {post.title}{' '}
+                    {post.title}{" "}
                     <button
                       onClick={() => {
                         setEditPost(!showEditPost);
