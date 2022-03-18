@@ -30,7 +30,9 @@ const App = () => {
           <Newpost isLoggedIn={isLoggedIn} />
         </Route>
         <Route path="/profile">
-          <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          <div className="profilePage">
+            <Profile isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+          </div>
         </Route>
         <Route path="/posts">
           <div

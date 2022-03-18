@@ -1,14 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 body {
-  background: url("../public/images/background\(1\).jpg");
+  background: url('../public/images/background\(1\).jpg');
 }
 
 :root {
@@ -21,164 +21,7 @@ body {
   overflow: hidden;
 }
 
-.postsPage {
-  margin-top: 15px;
-  max-height: inherit;
-}
-.postsPage.loggedIn {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-}
-.postsPage.guest {
-  display: block;
-}
-
-.allPosts {
-  position: relative;
-  max-height: inherit;
-  overflow-y: scroll;
-}
-
-#allPostsTitle {
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-}
-
-.profileContainer {
-  margin-top: 15px;
-  position: relative;
-  max-height: calc(100vh - var(--navHeight));
-  overflow-y: scroll;
-  width: 100%;
-  padding: 0 10px;
-}
-
-.hidden {
-  display: none;
-}
-
-#profileTitle {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  font-family: "Permanent Marker", cursive;
-}
-#username {
-  font-family: "Permanent Marker", cursive;
-}
-
-.profileContainer > h1 {
-  border-bottom: 1px solid black;
-}
-
-.myMessages > div {
-  background-color: lightgray;
-}
-
-.myMessages > div:hover {
-  background-color: red;
-}
-
-.post {
-  border: 1px solid black;
-  background-color: lightGray;
-  margin: 10px;
-  padding: 10px;
-}
-
-.post:hover {
-  background-color: gray;
-}
-
-.myPost {
-  border: 4px solid black;
-  background-color: lightgray;
-  box-shadow: 4px 4px 10px green;
-  margin: 10px;
-  padding: 10px;
-}
-
-.post > h4,
-.myPost > h4 {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-.post > p,
-.myPost > p {
-  font-size: 1rem;
-}
-
-.registerComponent {
-  border: 1px solid blue;
-  padding: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0.5rem 0.5rem 5px;
-}
-
-.loginComponent {
-  border: 1px solid darkslategray;
-  background-color: gray;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0.5rem 0.5rem 5px;
-  padding: 10px;
-}
-
-.newMessageContainer > form {
-  display: flex;
-  flex-direction: column;
-}
-
-.newMessageContainer > form > button {
-  align-self: flex-start;
-}
-
-.newMessageContainer > form > textarea {
-  width: 50%;
-  min-height: 50%;
-}
-
-.newPostContainer {
-  border: 1px solid red;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.newPostContainer > form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.editPostContainer {
-  border: 1px solid red;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.editPostContainer > form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
+/* NAV BAR COMPONENT */
 
 .nav_bar_container {
   background-color: lightgray;
@@ -220,36 +63,7 @@ body {
   max-height: inherit;
 }
 
-.singlePostContainer {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-}
-
-.singlePostMessages {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.singlePostMessages > div {
-  border: 1px solid black;
-}
-
-.postbuttons {
-  display: flex;
-  gap: 4px;
-}
-
-.profileitem {
-  display: flex;
-  justify-content: space-between;
-}
+/* hamburger menu */
 
 .hamburger {
   display: none;
@@ -271,7 +85,224 @@ body {
   cursor: pointer;
 }
 
+/* POSTS AND POST */
+
+.postsPage {
+  margin-top: 15px;
+  max-height: inherit;
+}
+.postsPage.loggedIn {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+.postsPage.guest {
+  display: block;
+}
+
+.postbuttons {
+  display: flex;
+  gap: 4px;
+}
+
+.allPosts {
+  position: relative;
+  max-height: inherit;
+  overflow-y: scroll;
+}
+
+#allPostsTitle {
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.post {
+  border: 1px solid black;
+  background-color: lightGray;
+  margin: 10px;
+  padding: 10px;
+}
+
+.post:hover {
+  background-color: gray;
+  box-shadow: 2px 2px 5px;
+}
+
+.myPost {
+  border: 4px solid black;
+  background-color: lightgray;
+  box-shadow: 4px 4px 10px green;
+  margin: 10px;
+  padding: 10px;
+}
+
+.myPost:hover {
+  background-color: lightGreen;
+}
+
+.post > h4,
+.myPost > h4 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.post > p,
+.myPost > p {
+  font-size: 1rem;
+}
+
+/* PROFILE */
+
+.profilePage {
+  background-color: gray;
+  max-height: 100vh;
+  max-width: 75vw;
+  margin: 0 auto;
+}
+
+.profileitem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profileContainer {
+  margin-top: 15px;
+  position: relative;
+  max-height: calc(100vh - var(--navHeight));
+  overflow-y: scroll;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#profileTitle {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  font-family: 'Permanent Marker', cursive;
+}
+#username {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.profileContainer > h1 {
+  border-bottom: 1px solid black;
+}
+
+.profileitem {
+  background-color: lightgray;
+}
+
+.profileitem:hover {
+  background-color: red;
+}
+
+/* AUTHENTICATION */
+
+.registerComponent {
+  border: 1px solid blue;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.5rem 0.5rem 5px;
+}
+
+.loginComponent {
+  border: 1px solid darkslategray;
+  background-color: gray;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.5rem 0.5rem 5px;
+  padding: 10px;
+}
+
+/* NEW MESSAGE FORM */
+
+.newMessageContainer > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newMessageContainer > form > button {
+  align-self: flex-start;
+}
+
+.newMessageContainer > form > textarea {
+  width: 50%;
+  min-height: 50%;
+}
+
+.newPostContainer {
+  background-color: gray;
+  border: 1px solid darkslategray;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.newPostContainer > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* EDIT POST */
+
+.editPostContainer {
+  background-color: gray;
+  border: 1px solid darkslategray;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editPostContainer > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* SINGLE POST PAGE */
+
+.singlePostContainer {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.singlePostMessages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.singlePostMessages > div {
+  border: 1px solid black;
+}
+
 /* ANIMATIONS */
+
 @keyframes dropDown {
   0% {
     top: -450px;
@@ -293,6 +324,7 @@ body {
 }
 
 /* MEDIA */
+
 @media screen and (max-width: 950px) {
   .link_container {
     display: none;

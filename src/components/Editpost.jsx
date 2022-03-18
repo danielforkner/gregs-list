@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { editPost } from '../apiFunction';
 
-const Editpost = ({ setEditPost, POST_ID }) => {
+const Editpost = ({ setEditPost, posts }) => {
   const [checked, setChecked] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [location, setLocation] = useState('');
   const [deliver, setDeliver] = useState(false);
+  const [selectedPost, setSelectedPost] = useState('please select a post');
+  console.log(posts);
+
+  const resetFields = () => {
+    setTitle('');
+    setDescription('');
+    setPrice('');
+    setLocation('');
+  };
 
   return (
     <div className="editPostContainer">
@@ -15,6 +24,13 @@ const Editpost = ({ setEditPost, POST_ID }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          console.log('selectedPost', selectedPost);
+
+          if (selectedPost === 'please select a post') {
+            resetFields();
+            alert('select a valid title');
+            return;
+          }
           const editedPost = {
             title: title,
             description: description,
@@ -22,16 +38,32 @@ const Editpost = ({ setEditPost, POST_ID }) => {
             location: location,
             willDeliver: deliver,
           };
-          editPost(editedPost, window.localStorage.getItem('token'), POST_ID); // CHANGE TO EDIT POST
-          setTitle('');
-          setDescription('');
-          setPrice('');
-          setLocation('');
+          let POST_ID;
+          posts.forEach((post, i) => {
+            if (post.title === selectedPost) {
+              POST_ID = post._id;
+            } else {
+              null;
+            }
+          });
+          editPost(editedPost, window.localStorage.getItem('token'), POST_ID);
+          resetFields();
           setDeliver(false);
           setChecked(false);
           setEditPost(false);
         }}
       >
+        <select
+          value={selectedPost}
+          onChange={(e) => setSelectedPost(e.target.value)}
+        >
+          <option value="please select a post">Please Select a Post</option>
+          {posts.map((post, i) => {
+            if (post.active) {
+              return <option value={post.title}>{post.title}</option>;
+            }
+          })}
+        </select>
         <input
           required
           value={title}
