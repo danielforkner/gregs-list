@@ -6,53 +6,48 @@ const Hamburgermenu = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div className="hamburgerMenu">
       <ul>
-        <Link
+        {isLoggedIn ? null : ( <li><Link
           to="/login"
           onClick={() => {
             menu.classList.remove('dropDown');
             menu.classList.add('goBackUp');
           }}
         >
-          <li>Login</li>
-        </Link>
-        <Link
+          Login
+        </Link></li>)}
+       
+        <li> <Link
           to="/posts"
           onClick={() => {
             menu.classList.remove('dropDown');
             menu.classList.add('goBackUp');
           }}
         >
-          <li>All Posts</li>
-        </Link>
-        <Link
+          All Posts
+        </Link></li>
+        {isLoggedIn ? (<li><Link
           to="/profile"
           onClick={() => {
             menu.classList.remove('dropDown');
             menu.classList.add('goBackUp');
           }}
         >
-          <li>My Profile</li>
-        </Link>
+          My Profile
+        </Link></li>) : null}
         {isLoggedIn ? (
-          <Link
+          <li><Link
             to="/posts"
             onClick={() => {
               window.localStorage.removeItem('token');
               setIsLoggedIn(false);
             }}
           >
-            <li>Logout</li>
-          </Link>
-        ) : (
-          <>
-            <Link to="/login">
-              <li>Login</li>
-            </Link>
-          </>
-        )}
-        <li>Logout</li>
+            Logout
+          </Link></li>
+        ) : null}
         <li
           className="closeMenu"
+          style={{textAlign: 'center'}}
           onClick={() => {
             menu.classList.remove('dropDown');
             menu.classList.add('goBackUp');

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Gregs_list from '../Gregs_list.png';
-import hamburger from '../hamburger.png';
-import Hamburgermenu from './Hamburgermenu';
+import Gregs_list from '../images/Gregs_list.png';
+import hamburger from '../images/hamburger.png';
+import Hamburgermenu from './Hamburgermenu'
+
 const NavBar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div className="nav_bar_container">

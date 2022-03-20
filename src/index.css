@@ -36,6 +36,7 @@ body {
 }
 
 .hamburgerMenu {
+  display: none;
   padding: 15px;
   position: absolute;
   top: -1000px;
@@ -47,6 +48,17 @@ body {
 
 .hamburgerMenu > ul {
   list-style-type: none;
+  font-size: 1.5rem;
+}
+
+.hamburgerMenu > ul > li:hover {
+  background-color: grey;
+  color: black;
+}
+
+.hamburgerMenu > ul > li > a {
+  text-decoration: none;
+  color: white;
 }
 
 .link_container {
@@ -214,14 +226,32 @@ body {
 }
 
 .loginComponent {
+  color: white;
+  font-size: 1.25rem;
   border: 1px solid darkslategray;
   background-color: gray;
   position: absolute;
+  min-width: 300px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0.5rem 0.5rem 5px;
+  box-shadow: 0.5rem 0.5rem 5px black;
   padding: 10px;
+}
+
+.loginComponent button {
+  padding: 5px;
+  font-size: 1.25rem;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px
+}
+
+.loginForm input {
+  font-size: 1.25rem;
 }
 
 /* NEW MESSAGE FORM */
@@ -330,6 +360,9 @@ body {
     display: none;
   }
   .hamburger {
+    display: block;
+  }
+  .hamburgerMenu {
     display: block;
   }
   .logo {

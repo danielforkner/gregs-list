@@ -20,7 +20,7 @@ const Editpost = ({ setEditPost, posts }) => {
 
   return (
     <div className="editPostContainer">
-      <h1>Edit POST</h1>
+      <h1>EDIT POST</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -124,7 +124,7 @@ const Editpost = ({ setEditPost, posts }) => {
           />
           Willing to Deliver?
         </label>
-        <button type="submit">Edit</button>
+        <button type="submit">EDIT</button>
       </form>
     </div>
   );

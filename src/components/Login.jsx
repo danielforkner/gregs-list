@@ -15,8 +15,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
 
   return (
     <div className="loginComponent">
-      <div>Login PAGE</div>
-      <form
+      <div>LOGIN</div>
+      <form className="loginForm"
         onSubmit={(e) => {
           e.preventDefault();
           console.log('Username:', username, 'Password:', password);
@@ -29,6 +29,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
           value={username}
           type="text"
           placeholder="username"
+          name="username"
           onChange={(e) => {
             setUsername(e.target.value);
           }}
@@ -36,6 +37,7 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
         <input
           value={password}
           type="password"
+          name="password"
           placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);

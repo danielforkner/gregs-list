@@ -4,8 +4,8 @@ import { getProfile, removePost } from '../apiFunction';
 import Newpost from './Newpost';
 import Editpost from './Editpost';
 import { Link, useHistory } from 'react-router-dom';
-import arrow_right from '../arrow_right.png';
-import arrow_down from '../arrow_down.png';
+import arrow_right from '../images/arrow_right.png';
+import arrow_down from '../images/arrow_down.png';
 
 const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
   const history = useHistory();
@@ -132,7 +132,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
           setEditPost(!showEditPost);
         }}
       >
-        EDIT Post
+        Edit a Post
       </button>
       {showEditPost ? (
         <Editpost setEditPost={setEditPost} posts={profile.posts} />
