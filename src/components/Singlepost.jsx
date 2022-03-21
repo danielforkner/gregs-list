@@ -3,14 +3,11 @@ import { useParams } from 'react-router-dom';
 import Newmessage from './Newmessage';
 
 const Singlepost = ({ allPosts, isLoggedIn }) => {
-  console.log('on single post page', allPosts);
   const { postid } = useParams();
-  console.log(typeof postid, typeof allPosts[0]._id);
   const [isReply, setReply] = useState(false);
   const post = allPosts.filter((post) => {
     return postid === post._id;
   })[0];
-  console.log(post);
   return (
     <div className="singlePostContainer">
       {post === undefined ? (

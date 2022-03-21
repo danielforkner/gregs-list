@@ -10,16 +10,15 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const [password, setPassword] = useState('');
 
   if (isLoggedIn) {
-    console.log('we are already logged in');
   }
 
   return (
     <div className="loginComponent">
       <div>LOGIN</div>
-      <form className="loginForm"
+      <form
+        className="loginForm"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log('Username:', username, 'Password:', password);
           loginUser(username, password, history, setIsLoggedIn);
           setUsername('');
           setPassword('');

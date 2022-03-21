@@ -9,7 +9,6 @@ const Editpost = ({ setEditPost, posts }) => {
   const [location, setLocation] = useState('');
   const [deliver, setDeliver] = useState(false);
   const [selectedPost, setSelectedPost] = useState('please select a post');
-  console.log(posts);
 
   const resetFields = () => {
     setTitle('');
@@ -24,7 +23,6 @@ const Editpost = ({ setEditPost, posts }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log('selectedPost', selectedPost);
 
           if (selectedPost === 'please select a post') {
             resetFields();
@@ -113,13 +111,11 @@ const Editpost = ({ setEditPost, posts }) => {
             id="deliver"
             onChange={(event) => {
               setChecked(!checked);
-              console.log(checked);
               setDeliver(
                 event.target.value === 'false'
                   ? (event.target.value = 'true')
                   : (event.target.value = 'false')
               );
-              console.log(event.target.value);
             }}
           />
           Willing to Deliver?

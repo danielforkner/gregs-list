@@ -13,7 +13,6 @@ const Register = ({ setIsLoggedIn }) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log('Username:', username, 'Password:', password);
           registerUser(username, password, history, setIsLoggedIn);
           setUsername('');
           setPassword('');

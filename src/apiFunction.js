@@ -11,15 +11,11 @@ export const getAllPosts = async (setAllPosts, token) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('we gave the token to getAllPosts');
     } else {
       response = await fetch(`${BASEURL}${COHORT}/posts`);
-      console.log('we did not give the token to getAllPosts');
     }
     const data = await response.json();
-    console.log(response);
     setAllPosts(data.data.posts);
-    console.log('all posts', data.data.posts);
     if (response.error) throw response.error;
   } catch (error) {
     console.error(error);
@@ -47,7 +43,6 @@ export const registerUser = async (
     });
     const data = await response.json();
     const token = data.data.token;
-    console.log(data);
     window.localStorage.setItem('token', token);
     setIsLoggedIn(true);
     history.push('/posts');
@@ -93,7 +88,6 @@ export const createPost = async (newPost, token) => {
       }),
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     console.error(error);
   }
@@ -112,7 +106,6 @@ export const editPost = async (editPost, token, POST_ID) => {
       }),
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     console.error(error);
   }
@@ -136,7 +129,6 @@ export const submitMessage = async (message, token, postid) => {
       }
     );
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     console.error(error);
   }
@@ -151,7 +143,6 @@ export const getProfile = async (token) => {
       },
     });
     const data = await response.json();
-    console.log('our profile', data);
     return data;
   } catch (error) {
     console.error(error);

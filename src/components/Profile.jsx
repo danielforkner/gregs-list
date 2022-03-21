@@ -19,7 +19,6 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
       const token = window.localStorage.getItem('token');
       const data = await getProfile(token);
       setProfile(data.data);
-      console.log('our profile', data.data);
     };
     setLogin();
   }, []);
@@ -56,7 +55,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
         {profile.messages
           ? profile.messages.map((message, i) => {
               return (
-                <div className="profileitem">
+                <div className="profileitem" key={`mymessages-${i}`}>
                   {message.content}
                   <Link to={`/posts/${message.post._id}`}>
                     <button>see post</button>
@@ -90,14 +89,12 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
               let author = message.fromUser.username;
               if (userName !== author) {
                 return (
-                  <>
-                    <div className="profileitem">
-                      {message.content}
-                      <Link to={`/posts/${message.post._id}`}>
-                        <button>see post</button>
-                      </Link>
-                    </div>
-                  </>
+                  <div className="profileitem" key={`myinbox-${i}`}>
+                    {message.content}
+                    <Link to={`/posts/${message.post._id}`}>
+                      <button>see post</button>
+                    </Link>
+                  </div>
                 );
               }
             })
@@ -145,7 +142,7 @@ const Profile = ({ isLoggedIn, setIsLoggedIn }) => {
                 return;
               } else {
                 return (
-                  <div className="profileitem">
+                  <div className="profileitem" key={`myposts-${i}`}>
                     {post.title}
                     <div>
                       <Link to={`/posts/${post._id}`}>
